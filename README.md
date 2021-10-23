@@ -1,2 +1,2 @@
 # wad
-Workspace Accessibility Dashboard
+Wheelchair Accessibility Dashboard
