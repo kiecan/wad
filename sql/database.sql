@@ -1,19 +1,3 @@
--- Database: wad
-
--- DROP DATABASE IF EXISTS wad;
-
-CREATE DATABASE wad
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'en_US.utf8'
-    LC_CTYPE = 'en_US.utf8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
-
-COMMENT ON DATABASE wad
-    IS 'Main database for Wheelchair Access Dashboard';
-
 /* Create Table to store location data */
 CREATE TABLE locations (
     location_id SERIAL,
@@ -35,10 +19,18 @@ CREATE TABLE counties (
 
 
 /* Create Table with accessibility options  */
-CREATE TABLE accessibilty (
-	location_id varchar(255) -- Needs to link to county table
+CREATE TABLE accessibilty_options (
+	id SERIAL,
+	location_id varchar(255), -- Needs to link to county table
+	full_access boolean, 
+	partial_access boolean, 
+	bathroom_hoist boolean, 
+	changing_table boolean, 
+	taxi_accessibility varchar(255)
 )
 
+
+/* Create Table for location types */
 CREATE TABLE location_types (
 	location_type_id SERIAL,
 	location_type_name varchar(255)
